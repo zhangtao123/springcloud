@@ -9,3 +9,6 @@ eureka:
       defaultZone: http://localhost:1111/eureka/
   instance:
       instance-id: ${spring.application.name}:${server.port}
+logging:
+  level:
+    com.example.service.HelloService: debug

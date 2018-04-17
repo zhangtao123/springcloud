@@ -1,13 +1,13 @@
-package com.didispace.service;
+package com.example.service;
 
-import com.didispace.entity.User;
+import com.example.entity.User;
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.*;
 /*服务消费者名称*/
-@FeignClient(value = "HELLO-SERVICE")
+@FeignClient(value = "HELLO-SERVICE",fallback = HelloServiceFallback.class)
 public interface HelloService {
 
-    @RequestMapping("/users")
+    @RequestMapping("/hello")
     String hello();
 
     @RequestMapping(value = "/hello1",method = RequestMethod.GET)
