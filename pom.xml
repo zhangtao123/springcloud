@@ -10,6 +10,8 @@
         <module>eurekaService</module>
         <module>HelloApplication</module>
         <module>ribbonconsumer</module>
+        <module>feignconsumer</module>
+        <module>hello-service-api</module>
     </modules>
     <packaging>pom</packaging>
 

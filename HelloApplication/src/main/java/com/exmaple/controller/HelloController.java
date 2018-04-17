@@ -1,13 +1,15 @@
 package com.exmaple.controller;
 
+import com.exmaple.entity.User;
+import org.omg.CORBA.UserException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.netflix.eureka.serviceregistry.EurekaRegistration;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.util.Random;
 
 @RestController
 public class HelloController {
@@ -18,8 +20,38 @@ public class HelloController {
     private EurekaRegistration eurekaRegistration;
 
     @RequestMapping(value = "/hello", method = RequestMethod.GET)
-    public String index() {
+    public String hello() throws Exception {
+        long start = System.currentTimeMillis();
+        int sleepTime = new Random().nextInt(3000);
+        LOGGER.info("sleepTime:"+sleepTime);
+        Thread.sleep(sleepTime);
         LOGGER.info("/hello,host:" + eurekaRegistration.getHost() + ",service_id:" + eurekaRegistration.getServiceId() + ",uri:" + eurekaRegistration.getUri());
+        long end = System.currentTimeMillis();
+        LOGGER.info("Spand time :"+(end - start));
         return "Hello World";
     }
+
+
+
+    @RequestMapping(value = "/users", method = RequestMethod.GET)
+    public String users(){
+        LOGGER.info("/hello,host:" + eurekaRegistration.getHost() + ",service_id:" + eurekaRegistration.getServiceId() + ",uri:" + eurekaRegistration.getUri());
+        return "Hello user";
+    }
+
+    @RequestMapping(value = "/hello1",method = RequestMethod.GET)
+    public String hello(@RequestParam("name") String name){
+        return "Hello "+name;
+    }
+
+    @RequestMapping(value = "/hello2",method = RequestMethod.GET)
+    public User hello(@RequestHeader("name") String name, @RequestHeader("age") Integer age){
+        return new User(name,age);
+    }
+
+    @RequestMapping(value = "/hello3",method = RequestMethod.POST)
+    public String hello(@RequestBody User user){
+        return "Hello "+user.getName() +", "+user.getAge();
+    }
+
 }
