@@ -1,10 +1,8 @@
 package com.exmaple.controller;
 
 import com.exmaple.entity.User;
-import org.omg.CORBA.UserException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.netflix.eureka.serviceregistry.EurekaRegistration;
 import org.springframework.web.bind.annotation.*;
 

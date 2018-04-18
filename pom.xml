@@ -12,6 +12,7 @@
         <module>ribbonconsumer</module>
         <module>feignconsumer</module>
         <module>hello-service-api</module>
+        <module>ApiGateway</module>
     </modules>
     <packaging>pom</packaging>
 
