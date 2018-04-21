@@ -3,12 +3,14 @@ package com.exmaple.controller;
 import com.exmaple.entity.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.cloud.netflix.eureka.serviceregistry.EurekaRegistration;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.Random;
-
+@RefreshScope
 @RestController
 public class HelloController {
 
@@ -16,6 +18,14 @@ public class HelloController {
 
     @Resource
     private EurekaRegistration eurekaRegistration;
+
+    @Value("${from}")
+    private String from;
+
+    @RequestMapping("/from")
+    public String from(){
+        return this.from;
+    }
 
     @RequestMapping(value = "/hello", method = RequestMethod.GET)
     public String hello() throws Exception {

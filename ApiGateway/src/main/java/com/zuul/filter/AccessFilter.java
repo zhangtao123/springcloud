@@ -2,12 +2,10 @@ package com.zuul.filter;
 
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
-import com.netflix.zuul.exception.ZuulException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 public class AccessFilter extends ZuulFilter {
     private static final Logger LOGGER = LoggerFactory.getLogger(AccessFilter.class);
@@ -33,12 +31,7 @@ public class AccessFilter extends ZuulFilter {
     @Override
     public Object run() {
         RequestContext ctx = RequestContext.getCurrentContext();
-        try{
-            doSomething();
-        }catch(Exception e){
-            ctx.set("error.status_code",HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
-            ctx.set("error.exception",e);
-        }
+        //doSomething();
         HttpServletRequest request = ctx.getRequest();
         LOGGER.info("send {} request to {}",request.getMethod(),request.getRequestURL().toString());
         Object accessToken = request.getParameter("accessToken");

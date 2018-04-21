@@ -11,10 +11,22 @@ zuul:
       sensitiveHeaders:
     api-b:
       path: /api-b/**
+
+
 #      zuul本地转发
       url: forward:/
+
+
 #  zuul在路由转发前为请求设置host头信息
   add-host-header: true
+
+
+#  禁用改过滤器
+#  AccessFilter:
+#    pre:
+#      disable: true
+
+
 eureka:
   client:
     serviceUrl:
