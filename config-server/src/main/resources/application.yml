@@ -5,7 +5,23 @@ spring:
     config:
       server:
         git:
-          uri: https://gitee.com/zhangt1/spingcloud
-          clone-on-start: true
+          uri: https://gitee.com/zhangt1/spingcloud/
+          searchPaths: '{application}'
+          username: zhangt1
+          password: zhangtao02103236
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:1111/eureka/
+      instance:
+          instance-id: ${spring.application.name}:${server.port}
 server:
   port: 7001
+
+
+security:
+  user:
+    name: user
+    password: c2c10eff-9619-4f55-a8a4-ec5f8345ca91
+

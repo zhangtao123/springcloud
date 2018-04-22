@@ -6,3 +6,6 @@ spring:
       profile: prod
       label: master
       uri: http://localhost:7001/
+      #访问配置中心大的用户和密码
+      username: user
+      password: c2c10eff-9619-4f55-a8a4-ec5f8345ca91
