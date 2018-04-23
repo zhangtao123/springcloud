@@ -1,3 +1,5 @@
+server:
+  port: 7001
 spring:
   application:
     name: config-server
@@ -6,9 +8,18 @@ spring:
       server:
         git:
           uri: https://gitee.com/zhangt1/spingcloud/
-          searchPaths: '{application}'
+          searchPaths: hello-service
           username: zhangt1
           password: zhangtao02103236
+    bus:
+      enabled: true
+
+  #设置rabbitmq的配置信息
+  rabbitmq:
+      host: localhost
+      port: 5672
+      username: springcloud
+      password: admin
 
 eureka:
   client:
@@ -16,12 +27,17 @@ eureka:
       defaultZone: http://localhost:1111/eureka/
       instance:
           instance-id: ${spring.application.name}:${server.port}
-server:
-  port: 7001
 
 
 security:
+  basic:
+    enabled: true
   user:
-    name: user
-    password: c2c10eff-9619-4f55-a8a4-ec5f8345ca91
+    name: root
+    password: root
 
+
+#去掉安全认证
+management:
+  security:
+    enabled: false

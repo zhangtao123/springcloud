@@ -9,13 +9,27 @@ spring:
         label: master
         uri: http://localhost:7001/
         #访问配置中心大的用户和密码
-        username: user
-        password: c2c10eff-9619-4f55-a8a4-ec5f8345ca91
-#        快速相应失败的内容
+        username: root
+        password: root
+        #快速相应失败的内容
         fail-fast: true
+
+
+  #设置rabbitmq的配置信息
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: springcloud
+    password: admin
+
+
+
 eureka:
   client:
     service-url:
       defaultZone: http://localhost:1111/eureka/
   instance:
     instance-id: ${spring.application.name}:${server.port}
+
+
+

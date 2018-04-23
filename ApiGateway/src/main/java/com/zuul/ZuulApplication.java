@@ -1,7 +1,6 @@
 package com.zuul;
 
 import com.zuul.filter.AccessFilter;
-import com.zuul.filter.ErrorFilter;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.cloud.client.SpringCloudApplication;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
