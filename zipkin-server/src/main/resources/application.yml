@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: zipkin-server
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: springcloud
+    password: admin
+server:
+  port: 9411

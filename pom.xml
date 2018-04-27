@@ -16,6 +16,10 @@
         <module>config-server</module>
         <module>HelloApplication2</module>
         <module>rabbit-hello</module>
+        <module>stream-hello</module>
+        <module>zipkin-server</module>
+        <module>trace-1</module>
+        <module>trace-2</module>
     </modules>
     <packaging>pom</packaging>
 

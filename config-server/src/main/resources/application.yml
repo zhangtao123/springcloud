@@ -21,6 +21,8 @@ spring:
       username: springcloud
       password: admin
 
+
+#服务注册中心
 eureka:
   client:
     service-url:
@@ -29,6 +31,7 @@ eureka:
           instance-id: ${spring.application.name}:${server.port}
 
 
+#安全认证设置
 security:
   basic:
     enabled: true
