@@ -2,7 +2,7 @@ package com.zipkin;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import zipkin.server.EnableZipkinServer;
+import org.springframework.cloud.sleuth.zipkin.stream.EnableZipkinStreamServer;
 
 /**
  * Created with IntelliJ IDEA.
@@ -12,7 +12,7 @@ import zipkin.server.EnableZipkinServer;
  * To change this template use File | Settings | File Templates.
  * Description:
  */
-@EnableZipkinServer
+@EnableZipkinStreamServer
 @SpringBootApplication
 public class ZipkinApplication {
     public static void main(String[] args) {
