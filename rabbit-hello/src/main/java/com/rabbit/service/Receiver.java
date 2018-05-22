@@ -34,8 +34,13 @@ public class Receiver {
     }
 
     @RabbitListener(queues = Constent.QUEUES_NAME4)
-    public void processD(String str) {
-        System.out.println("Receive========> B :" + str);
+    public void processD1(String str) {
+        System.out.println("Receive========> B =====> 1 :" + str);
+    }
+
+    @RabbitListener(queues = Constent.QUEUES_NAME4)
+    public void processD2(String str) {
+        System.out.println("Receive========> B =====> 2 :" + str);
     }
 
     @RabbitListener(queues = Constent.QUEUES_NAME5)

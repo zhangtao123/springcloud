@@ -52,6 +52,14 @@ public class RabbitTest {
     }
 
 
+    @RequestMapping("/testDirectManyConsumer")
+    public void testDirectToManyConsumer() {
+        for(int i=0;i<10;i++){
+            sender.sendDirect1();
+        }
+    }
+
+
     @PostMapping("/test")
     public String test() {
         return "success";

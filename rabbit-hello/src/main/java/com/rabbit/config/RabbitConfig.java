@@ -74,6 +74,9 @@ public class RabbitConfig {
     Binding bindingFanoutExchangeMessageC(@Qualifier("queuesName3") Queue queuesName3, @Qualifier("fanoutName") FanoutExchange  fanoutName) {
         return BindingBuilder.bind(queuesName3).to(fanoutName);
     }
+
+
+    /*申明路由键的地方：(1)：队列绑定到交换器;(2)：向交换机发送消息*/
     @Bean
     Binding bindingDirectExchangeMessageB(@Qualifier("queuesName4") Queue queuesName4, @Qualifier("directName") DirectExchange  directName) {
         return BindingBuilder.bind(queuesName4).to(directName).with(Constent.Direct_Exchange_Key1);
